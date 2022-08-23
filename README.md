@@ -9,3 +9,11 @@
 <br/>PS: Added Implementation to load the driver manually without ProcessExplorer.  
 LoadDriver.exe /LOAD  
 LoadDriver.exe /UNLOAD  
+
+### Evasion Alert:  
+EDRs and XDRs might notice an unsigned EXE loading a driver and adding a registry key, therefore the following trick was found.  
+Obivously opening procexp will alert the victim and would look weird, so by using the `/t` flag, procexp will be opened  
+minimized and the driver will be loaded by the `procexp64.exe` signed binary.  
+```  
+.\procexp64.exe -accepteula /t  
+```  
